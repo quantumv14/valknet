@@ -5,8 +5,18 @@ import { Shield, ArrowLeft, Calendar, User, Clock, Plus, Edit, Trash2 } from "lu
 import Link from "next/link";
 import { useState } from "react";
 
+// Types
+interface NewsArticle {
+  id: number;
+  title: string;
+  content: string;
+  reporter: string;
+  date: string;
+  time: string;
+}
+
 // Sample news data - in a real app this would come from a database
-const initialNews = [
+const initialNews: NewsArticle[] = [
   {
     id: 1,
     title: "Major Botnet Takedown Operation Completed",
@@ -57,7 +67,7 @@ export default function NewsPage() {
     }
   };
 
-  const handleEditNews = (article) => {
+  const handleEditNews = (article: NewsArticle) => {
     setEditingNews(article.id);
     setFormData({
       title: article.title,
@@ -69,7 +79,7 @@ export default function NewsPage() {
 
   const handleUpdateNews = () => {
     if (formData.title && formData.content && formData.reporter) {
-      setNews(news.map(article => 
+      setNews(news.map((article: NewsArticle) => 
         article.id === editingNews 
           ? { ...article, ...formData }
           : article
@@ -80,8 +90,8 @@ export default function NewsPage() {
     }
   };
 
-  const handleDeleteNews = (id) => {
-    setNews(news.filter(article => article.id !== id));
+  const handleDeleteNews = (id: number) => {
+    setNews(news.filter((article: NewsArticle) => article.id !== id));
   };
 
   const handleCancel = () => {
@@ -141,7 +151,7 @@ export default function NewsPage() {
                   <input
                     type="text"
                     value={formData.title}
-                    onChange={(e) => setFormData({...formData, title: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, title: e.target.value})}
                     className="w-full p-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:border-[#24a0af] focus:outline-none"
                     placeholder="Enter article title..."
                   />
@@ -151,7 +161,7 @@ export default function NewsPage() {
                   <label className="block text-sm font-medium text-gray-300 mb-2">Content</label>
                   <textarea
                     value={formData.content}
-                    onChange={(e) => setFormData({...formData, content: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({...formData, content: e.target.value})}
                     rows={4}
                     className="w-full p-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:border-[#24a0af] focus:outline-none resize-none"
                     placeholder="Enter article content..."
@@ -163,7 +173,7 @@ export default function NewsPage() {
                   <input
                     type="text"
                     value={formData.reporter}
-                    onChange={(e) => setFormData({...formData, reporter: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, reporter: e.target.value})}
                     className="w-full p-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:border-[#24a0af] focus:outline-none"
                     placeholder="Enter reporter name..."
                   />
@@ -190,7 +200,7 @@ export default function NewsPage() {
 
           {/* News Articles */}
           <div className="space-y-8">
-            {news.map((article) => (
+            {news.map((article: NewsArticle) => (
               <article key={article.id} className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
                 <div className="flex items-start justify-between mb-4">
                   <h2 className="text-2xl font-bold text-white mb-2 flex-1">{article.title}</h2>
