@@ -142,8 +142,7 @@ export default function WatchdogPage() {
             <div className="bg-gradient-to-br from-red-500/10 to-black/50 p-8 rounded-xl border border-red-500/20">
               <h3 className="text-2xl font-bold mb-4 text-red-400">Real-Time Scanning</h3>
               <p className="text-gray-300 mb-4">
-                Continuous monitoring of file system activities with machine learning-powered threat detection that identifies 
-                both known and zero-day malware in real-time.
+                Continuous monitoring of file system activities with machine learning-powered threat detection that identifies both known and zero-day malware in real-time.
               </p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
@@ -164,8 +163,7 @@ export default function WatchdogPage() {
             <div className="bg-gradient-to-br from-red-500/10 to-black/50 p-8 rounded-xl border border-red-500/20">
               <h3 className="text-2xl font-bold mb-4 text-red-400">Auto-Quarantine</h3>
               <p className="text-gray-300 mb-4">
-                Automatic isolation and neutralization of detected threats with smart quarantine management that prevents 
-                system disruption while maintaining security.
+                Automatic isolation and neutralization of detected threats with smart quarantine management that prevents system disruption while maintaining security.
               </p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">

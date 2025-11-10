@@ -16,6 +16,7 @@ export default function Home() {
             <a href="#about" className="text-sm hover:text-[#24a0af] transition-colors">About Us</a>
             <a href="#features" className="text-sm hover:text-[#24a0af] transition-colors">Features</a>
             <a href="#solutions" className="text-sm hover:text-[#24a0af] transition-colors">Solutions</a>
+            <Link href="/news" className="text-sm hover:text-[#24a0af] transition-colors">News</Link>
             <a href="#contact" className="text-sm hover:text-[#24a0af] transition-colors">Contact</a>
           </div>
           <Button variant="ghost" size="icon" className="hover:bg-white/10">
