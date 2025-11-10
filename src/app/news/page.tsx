@@ -46,7 +46,7 @@ const initialNews: NewsArticle[] = [
 export default function NewsPage() {
   const [news, setNews] = useState(initialNews);
   const [showAddForm, setShowAddForm] = useState(false);
-  const [editingNews, setEditingNews] = useState(null);
+  const [editingNews, setEditingNews] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     title: "",
     content: "",
