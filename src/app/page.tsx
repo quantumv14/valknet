@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Lock, Eye, Server, Bell, Users, Globe, Zap, Cloud, FileCheck } from "lucide-react";
+import { Shield, Lock, Eye, Server, Bell, Users, Globe, Zap, Cloud, FileCheck, Activity } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -46,10 +47,12 @@ export default function Home() {
               <Server className="w-5 h-5 mr-2" />
               Get Started
             </Button>
-            <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
-              <Eye className="w-5 h-5 mr-2" />
-              Live Demo
-            </Button>
+            <Link href="/status">
+              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
+                <Activity className="w-5 h-5 mr-2" />
+                System Status
+              </Button>
+            </Link>
           </div>
 
           {/* Security Dashboard Mockup */}
