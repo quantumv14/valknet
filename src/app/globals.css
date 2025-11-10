@@ -108,3 +108,37 @@
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
 }
+
+/* Fast button transitions */
+.fast-transition {
+  transition: all 0.15s ease-out;
+}
+
+.fast-button-hover {
+  transition: all 0.1s ease-out;
+  transform-origin: center;
+}
+
+.fast-button-hover:hover {
+  transform: scale(1.02);
+}
+
+.fast-button-hover:active {
+  transform: scale(0.98);
+  transition: all 0.05s ease-out;
+}
+
+/* Product card styles */
+.product-card {
+  transition: all 0.2s ease-out;
+  transform-origin: center;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(36, 160, 175, 0.2);
+}
+
+.product-card:active {
+  transform: translateY(-2px);
+}

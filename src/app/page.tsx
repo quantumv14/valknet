@@ -43,12 +43,14 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-200">
-              <Server className="w-5 h-5 mr-2" />
-              Get Started
-            </Button>
+            <Link href="/products">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200 fast-button-hover">
+                <Server className="w-5 h-5 mr-2" />
+                Get Started
+              </Button>
+            </Link>
             <Link href="/status">
-              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 fast-button-hover">
                 <Activity className="w-5 h-5 mr-2" />
                 System Status
               </Button>
