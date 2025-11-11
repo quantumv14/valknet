@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Shield, Zap, Globe, Server, Activity, FileCheck, Users, Lock, Eye, Cpu, TrendingUp, ArrowRight, Bot, Anchor, Menu, X } from "lucide-react";
 import Link from "next/link";
