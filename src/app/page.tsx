@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Lock, Eye, Server, Bell, Users, Globe, Zap, Cloud, FileCheck, Activity } from "lucide-react";
+import { Shield, Zap, Globe, Server, Activity, FileCheck, Users, Lock, Eye, Cpu, TrendingUp, ArrowRight, Bot, Anchor, Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import CookieBanner from "@/components/CookieBanner";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
       {/* Navigation */}
@@ -19,10 +23,33 @@ export default function Home() {
             <Link href="/news" className="text-sm hover:text-[#24a0af] transition-colors">News</Link>
             <a href="#contact" className="text-sm hover:text-[#24a0af] transition-colors">Contact</a>
           </div>
-          <Button variant="ghost" size="icon" className="hover:bg-white/10">
-            <Globe className="w-5 h-5" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" className="hover:bg-white/10 hidden sm:flex">
+              <Globe className="w-5 h-5" />
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:bg-white/10 md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
+            <div className="container mx-auto px-6 py-4 space-y-4">
+              <a href="#about" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</a>
+              <a href="#features" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>Features</a>
+              <a href="#solutions" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>Solutions</a>
+              <Link href="/news" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>News</Link>
+              <a href="#contact" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -424,30 +451,30 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Platform</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Solutions</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Documentation</a></li>
+                <li><Link href="/features" className="hover:text-[#24a0af] transition-colors">Features</Link></li>
+                <li><Link href="/solutions" className="hover:text-[#24a0af] transition-colors">Solutions</Link></li>
+                <li><Link href="/pricing" className="hover:text-[#24a0af] transition-colors">Pricing</Link></li>
+                <li><Link href="/docs" className="hover:text-[#24a0af] transition-colors">Documentation</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Contact</a></li>
+                <li><Link href="/about" className="hover:text-[#24a0af] transition-colors">About Us</Link></li>
+                <li><Link href="/careers" className="hover:text-[#24a0af] transition-colors">Careers</Link></li>
+                <li><Link href="/news" className="hover:text-[#24a0af] transition-colors">Blog</Link></li>
+                <li><Link href="/contact" className="hover:text-[#24a0af] transition-colors">Contact</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Resources</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Security Center</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Compliance</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Support</a></li>
-                <li><a href="#" className="hover:text-[#24a0af] transition-colors">Status</a></li>
+                <li><Link href="/security-center" className="hover:text-[#24a0af] transition-colors">Security Center</Link></li>
+                <li><Link href="/compliance" className="hover:text-[#24a0af] transition-colors">Compliance</Link></li>
+                <li><Link href="/support" className="hover:text-[#24a0af] transition-colors">Support</Link></li>
+                <li><Link href="/status" className="hover:text-[#24a0af] transition-colors">Status</Link></li>
               </ul>
             </div>
           </div>
@@ -457,6 +484,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      {/* Cookie Banner */}
+      <CookieBanner />
     </div>
   );
 }

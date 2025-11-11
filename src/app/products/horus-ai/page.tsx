@@ -49,13 +49,15 @@ export default function HorusAIPage() {
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-4 mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30">
-                <Bot className="w-10 h-10 text-[#24a0af]" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
+              <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
+                <Bot className="w-8 h-8 text-[#24a0af]" />
               </div>
-              <div className="text-left">
-                <h1 className="text-5xl md:text-6xl font-bold">Horus AI</h1>
-                <p className="text-xl text-[#24a0af]">AI-Powered Threat Detection & Response</p>
+              <div className="text-center sm:text-left">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">Horus AI</h1>
+                <p className="text-lg sm:text-xl text-[#24a0af]">
+                  Advanced Threat Intelligence
+                </p>
               </div>
             </div>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">

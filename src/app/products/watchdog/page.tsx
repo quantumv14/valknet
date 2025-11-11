@@ -41,13 +41,13 @@ export default function WatchdogPage() {
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-4 mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-500/10 border border-red-500/30">
-                <Shield className="w-10 h-10 text-red-400" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
+              <div className="flex-shrink-0 inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-500/10 border border-red-500/30">
+                <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-red-400" />
               </div>
-              <div className="text-left">
-                <h1 className="text-5xl md:text-6xl font-bold">Watchdog</h1>
-                <p className="text-xl text-red-400">All-in-One Antivirus & Threat Protection</p>
+              <div className="text-center sm:text-left">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">Watchdog</h1>
+                <p className="text-lg sm:text-xl text-red-400">All-in-One Antivirus & Threat Protection</p>
               </div>
             </div>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">

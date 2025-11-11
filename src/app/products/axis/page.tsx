@@ -50,13 +50,15 @@ export default function AxisPage() {
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-4 mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 border border-green-500/30">
-                <Server className="w-10 h-10 text-green-400" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
+              <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
+                <Server className="w-8 h-8 text-[#24a0af]" />
               </div>
-              <div className="text-left">
-                <h1 className="text-5xl md:text-6xl font-bold">Axis</h1>
-                <p className="text-xl text-green-400">Secure Game Server Hosting</p>
+              <div className="text-center sm:text-left">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">Axis</h1>
+                <p className="text-lg sm:text-xl text-[#24a0af]">
+                  Server Infrastructure Protection
+                </p>
               </div>
             </div>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
