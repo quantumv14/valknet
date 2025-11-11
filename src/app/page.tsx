@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Shield, Zap, Globe, Server, Activity, FileCheck, Users, Lock, Eye, Cpu, TrendingUp, ArrowRight, Bot, Anchor, Menu, X } from "lucide-react";
+import { Shield, Zap, Globe, Server, Activity, FileCheck, Users, Lock, Eye, Cpu, TrendingUp, ArrowRight, Bot, Anchor, Menu, X, Bell, Cloud } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import CookieBanner from "@/components/CookieBanner";
