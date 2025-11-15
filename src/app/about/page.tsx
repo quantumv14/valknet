@@ -2,6 +2,8 @@
 
 import { Shield, ArrowLeft, Users, Target, Award, Globe, Zap, Lock, Eye, TrendingUp, Heart, Code } from "lucide-react";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function AboutPage() {
   const teamMembers = [
@@ -76,24 +78,12 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors fast-button-hover">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">About Valknet Security</h1>
             <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
               Founded in 2019, Valknet Security has emerged as a leading provider of comprehensive cybersecurity solutions, 
@@ -106,8 +96,8 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 staggered-animation">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
               <Target className="w-12 h-12 text-[#24a0af] mb-6" />
               <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
@@ -122,7 +112,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
               <Globe className="w-12 h-12 text-[#24a0af] mb-6" />
               <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
@@ -143,14 +133,14 @@ export default function AboutPage() {
       {/* Company Story */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Our Story</h2>
             <p className="text-xl text-gray-400">
               From a small team of security experts to a global cybersecurity leader
             </p>
           </div>
 
-          <div className="prose prose-lg prose-invert max-w-none">
+          <div className="prose prose-lg prose-invert max-w-none fade-in">
             <p className="text-gray-300 leading-relaxed mb-6">
               Valknet Security was born from a simple observation: while cyber threats were becoming increasingly 
               sophisticated, the tools to combat them remained fragmented, expensive, and difficult to implement. 
@@ -216,14 +206,14 @@ export default function AboutPage() {
       {/* Timeline */}
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Our Journey</h2>
             <p className="text-xl text-gray-400">
               Key milestones in our mission to secure the digital world
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-8 staggered-animation">
             {milestones.map((milestone, index) => (
               <div key={index} className="flex gap-8 items-start">
                 <div className="flex-shrink-0 w-24 text-right">
@@ -243,16 +233,16 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Leadership Team</h2>
             <p className="text-xl text-gray-400">
               Meet the experts driving innovation in cybersecurity
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 staggered-animation">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 text-center">
+              <div key={index} className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 text-center product-card">
                 <div className="w-24 h-24 bg-gradient-to-br from-[#24a0af]/30 to-[#1a5b60]/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Users className="w-12 h-12 text-[#24a0af]" />
                 </div>
@@ -268,16 +258,16 @@ export default function AboutPage() {
       {/* Values */}
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Our Values</h2>
             <p className="text-xl text-gray-400">
               The principles that guide everything we do
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 staggered-animation">
             {values.map((value, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center product-card">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
                   <value.icon className="w-8 h-8 text-[#24a0af]" />
                 </div>
@@ -292,14 +282,14 @@ export default function AboutPage() {
       {/* Technology & Innovation */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Technology & Innovation</h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Our commitment to cutting-edge research and development drives continuous innovation in cybersecurity
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 staggered-animation">
             <div>
               <h3 className="text-2xl font-bold mb-6">Research & Development</h3>
               <p className="text-gray-300 leading-relaxed mb-4">
@@ -326,7 +316,6 @@ export default function AboutPage() {
                 incorporating data from millions of endpoints, threat feeds, and security research publications.
               </p>
             </div>
-
             <div>
               <h3 className="text-2xl font-bold mb-6">Global Threat Intelligence</h3>
               <p className="text-gray-300 leading-relaxed mb-4">
@@ -360,14 +349,14 @@ export default function AboutPage() {
       {/* Partnerships & Certifications */}
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Partnerships & Certifications</h2>
             <p className="text-xl text-gray-400">
               Trusted by industry leaders and certified by security organizations worldwide
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 staggered-animation">
             <div>
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <Award className="w-6 h-6 text-[#24a0af]" />
@@ -405,29 +394,24 @@ export default function AboutPage() {
 
       {/* Contact CTA */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-4xl text-center">
+        <div className="container mx-auto max-w-4xl text-center fade-in">
           <h2 className="text-4xl font-bold mb-6">Ready to Secure Your Organization?</h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
             Join thousands of organizations worldwide who trust Valknet Security to protect their digital assets. 
             Contact us today to learn how we can help secure your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-[#24a0af] hover:bg-[#1a5b60] text-white px-8 py-3 rounded-lg font-medium transition-colors">
+            <Link href="/contact" className="bg-[#24a0af] hover:bg-[#1a5b60] text-white px-8 py-3 rounded-lg font-medium transition-colors fast-button-hover">
               Contact Sales
             </Link>
-            <Link href="/products" className="border border-white/20 hover:bg-white/10 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+            <Link href="/products" className="border border-white/20 hover:bg-white/10 text-white px-8 py-3 rounded-lg font-medium transition-colors fast-button-hover">
               View Products
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -2,28 +2,18 @@
 
 import { Shield, ArrowLeft, Mail, Phone, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors fast-button-hover">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Ready to secure your organization? Get in touch with our security experts to discuss your needs and find the perfect solution.
@@ -35,13 +25,13 @@ export default function ContactPage() {
       {/* Contact Section */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 staggered-animation">
             {/* Contact Info */}
             <div>
               <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
               
               <div className="space-y-6 mb-8">
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 product-card">
                   <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
                     <Mail className="w-6 h-6 text-[#24a0af]" />
                   </div>
@@ -52,7 +42,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 product-card">
                   <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
                     <Phone className="w-6 h-6 text-[#24a0af]" />
                   </div>
@@ -63,7 +53,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 product-card">
                   <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
                     <MapPin className="w-6 h-6 text-[#24a0af]" />
                   </div>
@@ -74,7 +64,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 product-card">
                   <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
                     <Clock className="w-6 h-6 text-[#24a0af]" />
                   </div>
@@ -88,7 +78,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
               <h2 className="text-3xl font-bold mb-8">Send us a Message</h2>
               
               <form className="space-y-6">
@@ -140,7 +130,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#24a0af] hover:bg-[#1a5b60] text-white py-3 px-6 rounded-lg font-medium transition-colors"
+                  className="w-full bg-[#24a0af] hover:bg-[#1a5b60] text-white py-3 px-6 rounded-lg font-medium transition-colors fast-button-hover"
                 >
                   Send Message
                 </button>
@@ -150,12 +140,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

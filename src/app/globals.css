@@ -130,15 +130,102 @@
 
 /* Product card styles */
 .product-card {
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
   transform-origin: center;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(36, 160, 175, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(36, 160, 175, 0.25);
 }
 
 .product-card:active {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus styles for accessibility */
+.focus-ring {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Loading animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+
+/* Staggered animations */
+.staggered-animation > * {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.staggered-animation > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.staggered-animation > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.staggered-animation > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.staggered-animation > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.staggered-animation > *:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.staggered-animation > *:nth-child(6) {
+  animation-delay: 0.6s;
 }

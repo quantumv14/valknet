@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Shield, ArrowLeft, CheckCircle2, XCircle, Clock } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 interface DomainStatus {
   name: string;
@@ -80,27 +82,13 @@ export default function StatusPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="hover:bg-white/10">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Status Page Content */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">System Status</h1>
             <p className="text-xl text-gray-400 mb-8">
               Real-time monitoring of all Valknet Security infrastructure
@@ -134,23 +122,23 @@ export default function StatusPage() {
           </div>
 
           {/* Statistics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-6 rounded-xl border border-[#24a0af]/20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 staggered-animation">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 product-card">
               <div className="text-3xl font-bold text-[#24a0af] mb-2">{statuses.length}</div>
               <div className="text-gray-400">Total Services</div>
             </div>
-            <div className="bg-gradient-to-br from-green-500/10 to-black/50 p-6 rounded-xl border border-green-500/20">
+            <div className="bg-gradient-to-br from-green-500/10 to-black/50 p-6 rounded-xl border border-green-500/20 product-card">
               <div className="text-3xl font-bold text-green-400 mb-2">{onlineCount}</div>
               <div className="text-gray-400">Services Online</div>
             </div>
-            <div className="bg-gradient-to-br from-red-500/10 to-black/50 p-6 rounded-xl border border-red-500/20">
+            <div className="bg-gradient-to-br from-red-500/10 to-black/50 p-6 rounded-xl border border-red-500/20 product-card">
               <div className="text-3xl font-bold text-red-400 mb-2">{offlineCount}</div>
               <div className="text-gray-400">Services Offline</div>
             </div>
           </div>
 
           {/* Status Chart/Graph */}
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-8">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-8 product-card">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Shield className="w-6 h-6 text-[#24a0af]" />
               Service Status Overview
@@ -218,7 +206,7 @@ export default function StatusPage() {
           </div>
 
           {/* Uptime Graph */}
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <h2 className="text-2xl font-bold mb-6">24-Hour Uptime History</h2>
             <div className="flex items-end justify-between gap-1 h-48">
               {Array.from({ length: 24 }).map((_, i) => {
@@ -245,12 +233,7 @@ export default function StatusPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>Status page updates every 30 seconds • Monitoring since 2025</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

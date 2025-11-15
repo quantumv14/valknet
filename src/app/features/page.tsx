@@ -1,95 +1,79 @@
 "use client";
 
-import { Shield, ArrowLeft, Zap, Lock, Eye, TrendingUp, Users, Globe, Server, Activity, Bot, Code, Search, FileText } from "lucide-react";
+import { Shield, ArrowLeft, Zap, Lock, Eye, TrendingUp, Users, Globe, Server, Activity, Bot, Code, Search, FileText, FileCheck, Cloud, CheckCircle } from "lucide-react";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function FeaturesPage() {
   const features = [
     {
-      icon: Zap,
-      title: "Real-Time Threat Detection",
-      description: "Advanced AI-powered monitoring that identifies and neutralizes threats in milliseconds, providing instant protection against both known and zero-day attacks.",
-      benefits: ["99.9% threat detection accuracy", "Sub-second response times", "Machine learning adaptation", "Behavioral analysis"]
+      title: "Advanced Threat Detection",
+      description: "AI-powered threat detection that identifies and neutralizes sophisticated attacks in real-time using behavioral analysis and machine learning algorithms.",
+      icon: Shield,
     },
     {
-      icon: Lock,
-      title: "Advanced Encryption",
-      description: "Military-grade encryption protocols protect your data at rest and in transit, ensuring complete confidentiality and integrity of sensitive information.",
-      benefits: ["AES-256 encryption standard", "End-to-end protection", "Zero-knowledge architecture", "Quantum-resistant algorithms"]
-    },
-    {
-      icon: Eye,
       title: "24/7 Monitoring",
-      description: "Continuous surveillance of your digital infrastructure with automated alerting and response systems that never sleep.",
-      benefits: ["Round-the-clock protection", "Automated incident response", "Real-time dashboards", "Proactive threat hunting"]
+      description: "Continuous surveillance of your network infrastructure with expert security analysts monitoring for threats around the clock.",
+      icon: Eye,
     },
     {
+      title: "Automated Response",
+      description: "Intelligent automation that responds to security incidents faster than humanly possible, minimizing impact and reducing response times.",
+      icon: Zap,
+    },
+    {
+      title: "Compliance Reporting",
+      description: "Automated compliance reports for SOC 2, ISO 27001, GDPR, and other industry standards with audit trails and documentation.",
+      icon: FileCheck,
+    },
+    {
+      title: "Cloud Security",
+      description: "Comprehensive protection for your cloud infrastructure with automated vulnerability scanning and real-time threat detection.",
+      icon: Cloud,
+    },
+    {
+      title: "Endpoint Protection",
+      description: "Advanced endpoint security that protects devices across your organization with real-time scanning and behavioral analysis.",
       icon: Server,
-      title: "Enterprise Scalability",
-      description: "Built for organizations of any size, from startups to Fortune 500 companies, with flexible deployment options and unlimited scaling.",
-      benefits: ["Cloud-native architecture", "Auto-scaling capabilities", "Multi-tenant support", "Global deployment"]
-    },
-    {
-      icon: Bot,
-      title: "AI-Powered Intelligence",
-      description: "Horus AI leverages machine learning to predict threats before they occur, providing proactive security measures and intelligent recommendations.",
-      benefits: ["Predictive threat analysis", "Automated decision making", "Continuous learning", "Intelligent recommendations"]
-    },
-    {
-      icon: Code,
-      title: "Reverse Engineering Tools",
-      description: "Xvy platform provides comprehensive malware analysis and reverse engineering capabilities for security researchers and analysts.",
-      benefits: ["Binary analysis automation", "Malware dissection", "Cross-platform support", "Decompilation engine"]
-    },
-    {
-      icon: Globe,
-      title: "Global Threat Intelligence",
-      description: "Access to worldwide threat intelligence networks providing real-time information about emerging security risks and attack patterns.",
-      benefits: ["Global sensor network", "Threat intelligence feeds", "Attack pattern analysis", "IOC sharing"]
-    },
-    {
-      icon: Users,
-      title: "Team Collaboration",
-      description: "Built-in collaboration tools allow security teams to work together effectively, share insights, and coordinate incident response.",
-      benefits: ["Role-based access control", "Incident collaboration", "Knowledge sharing", "Team dashboards"]
     }
   ];
 
-  const integrations = [
-    { name: "Microsoft Azure", logo: "🔷" },
-    { name: "Amazon AWS", logo: "🟠" },
-    { name: "Google Cloud", logo: "🔴" },
-    { name: "Splunk", logo: "🟢" },
-    { name: "IBM QRadar", logo: "🔵" },
-    { name: "ServiceNow", logo: "🟡" },
-    { name: "Jira", logo: "🔵" },
-    { name: "Slack", logo: "🟣" }
+  const benefits = [
+    {
+      title: "Reduce Risk",
+      description: "Minimize your organization's exposure to cyber threats with comprehensive protection that adapts to evolving attack vectors.",
+      stat: "99.9% threat detection rate"
+    },
+    {
+      title: "Save Time",
+      description: "Automate security operations and reduce the burden on your IT team with intelligent systems that handle routine tasks.",
+      stat: "85% reduction in manual tasks"
+    },
+    {
+      title: "Ensure Compliance",
+      description: "Meet industry regulations and standards with automated compliance reporting and audit-ready documentation.",
+      stat: "100% compliance reporting accuracy"
+    }
   ];
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors fast-button-hover">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Platform Features</h1>
-            <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              Discover the comprehensive security capabilities that make Valknet Security the trusted choice 
-              for organizations worldwide. From real-time threat detection to advanced AI analytics.
+          <div className="text-center mb-16 fade-in">
+            <div className="inline-block mb-6 px-4 py-2 bg-white/5 border border-[#24a0af]/30 rounded-full">
+              <span className="text-sm text-[#24a0af] flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                Enterprise Security Platform
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Advanced Security Features</h1>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Comprehensive protection designed to defend against the most sophisticated cyber threats while providing intuitive management and detailed insights.
             </p>
           </div>
         </div>
@@ -97,122 +81,110 @@ export default function FeaturesPage() {
 
       {/* Features Grid */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 p-3 bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 rounded-xl border border-[#24a0af]/30">
-                    <feature.icon className="w-6 h-6 text-[#24a0af]" />
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16 fade-in">
+            <h2 className="text-4xl font-bold mb-4">Core Security Capabilities</h2>
+            <p className="text-xl text-gray-400">
+              Advanced protection technologies designed to defend against the most sophisticated cyber threats
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 staggered-animation">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index} className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-6">
+                    <IconComponent className="w-8 h-8 text-[#24a0af]" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                    <p className="text-gray-300 leading-relaxed mb-4">{feature.description}</p>
-                  </div>
+                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
                 </div>
-                
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-[#24a0af] uppercase tracking-wide">Key Benefits</h4>
-                  <ul className="space-y-1">
-                    {feature.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="text-sm text-gray-400 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#24a0af] rounded-full flex-shrink-0"></div>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16 fade-in">
+            <h2 className="text-4xl font-bold mb-4">Security That Delivers Results</h2>
+            <p className="text-xl text-gray-400">
+              Measurable benefits that protect your organization and support your business objectives
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 staggered-animation">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="text-center product-card">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4 mx-auto">
+                  <TrendingUp className="w-8 h-8 text-[#24a0af]" />
                 </div>
+                <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
+                <p className="text-gray-400 mb-4">{benefit.description}</p>
+                <div className="text-2xl font-bold text-[#24a0af]">{benefit.stat}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Security Standards */}
-      <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Security Standards & Compliance</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Built to meet the highest security standards and regulatory requirements
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
-                <Shield className="w-8 h-8 text-[#24a0af]" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">ISO 27001</h3>
-              <p className="text-gray-400">Information Security Management System certification ensuring systematic approach to managing sensitive information.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
-                <Lock className="w-8 h-8 text-[#24a0af]" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">SOC 2 Type II</h3>
-              <p className="text-gray-400">Comprehensive audit of security, availability, processing integrity, confidentiality, and privacy controls.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
-                <Globe className="w-8 h-8 text-[#24a0af]" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">GDPR Compliant</h3>
-              <p className="text-gray-400">Full compliance with General Data Protection Regulation for handling personal data of EU residents.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integrations */}
+      {/* Technology Section */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Seamless Integrations</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Connect with your existing security stack and business tools for unified protection
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {integrations.map((integration, index) => (
-              <div key={index} className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 text-center">
-                <div className="text-3xl mb-3">{integration.logo}</div>
-                <h3 className="font-semibold">{integration.name}</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="fade-in">
+              <h2 className="text-3xl font-bold mb-6">Powered by Advanced AI</h2>
+              <p className="text-gray-300 mb-6">
+                Our proprietary machine learning algorithms analyze billions of data points daily, learning from new threats 
+                and adapting to evolving attack patterns. This allows us to detect zero-day exploits and sophisticated 
+                attacks that traditional security tools might miss.
+              </p>
+              <p className="text-gray-300 mb-6">
+                The platform automatically scales to handle traffic spikes and can be deployed across multiple cloud 
+                providers and regions to ensure high availability and data sovereignty compliance.
+              </p>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#24a0af] flex-shrink-0" />
+                  <span>Behavioral analysis engine</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#24a0af] flex-shrink-0" />
+                  <span>Heuristic detection algorithms</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#24a0af] flex-shrink-0" />
+                  <span>Cloud-based threat intelligence</span>
+                </li>
+              </ul>
+            </div>
+            <div className="fade-in">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#24a0af]/30 to-[#1a5b60]/20 rounded-full blur-3xl"></div>
+                <div className="relative bg-gradient-to-br from-[#24a0af]/10 to-transparent p-8 rounded-2xl border border-[#24a0af]/30 backdrop-blur-sm">
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="bg-black/40 p-6 rounded-xl border border-white/10">
+                      <div className="text-3xl font-bold text-[#24a0af] mb-2">99.9%</div>
+                      <div className="text-gray-400">Detection Rate</div>
+                    </div>
+                    <div className="bg-black/40 p-6 rounded-xl border border-white/10">
+                      <div className="text-3xl font-bold text-[#24a0af] mb-2">&lt;1s</div>
+                      <div className="text-gray-400">Response Time</div>
+                    </div>
+                    <div className="bg-black/40 p-6 rounded-xl border border-white/10">
+                      <div className="text-3xl font-bold text-[#24a0af] mb-2">24/7</div>
+                      <div className="text-gray-400">Monitoring</div>
+                    </div>
+                    <div className="bg-black/40 p-6 rounded-xl border border-white/10">
+                      <div className="text-3xl font-bold text-[#24a0af] mb-2">100%</div>
+                      <div className="text-gray-400">Compliance</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Performance Stats */}
-      <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Platform Performance</h2>
-            <p className="text-xl text-gray-400">
-              Industry-leading performance metrics that deliver results
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#24a0af] mb-2">99.97%</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wide">Uptime</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#24a0af] mb-2">&lt;2ms</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wide">Response Time</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#24a0af] mb-2">500K+</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wide">Protected Endpoints</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#24a0af] mb-2">24/7</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wide">Monitoring</div>
             </div>
           </div>
         </div>
@@ -220,28 +192,23 @@ export default function FeaturesPage() {
 
       {/* CTA Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Experience These Features?</h2>
+        <div className="container mx-auto max-w-4xl text-center fade-in">
+          <h2 className="text-4xl font-bold mb-6">Ready to Enhance Your Security?</h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            See how Valknet Security's comprehensive feature set can protect and empower your organization.
+            Discover how our advanced security features can protect your organization from evolving cyber threats.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-[#24a0af] hover:bg-[#1a5b60] text-white px-8 py-3 rounded-lg font-medium transition-colors">
-              Start Free Trial
+            <Link href="/contact" className="bg-[#24a0af] hover:bg-[#1a5b60] text-white px-8 py-3 rounded-lg font-medium transition-colors fast-button-hover">
+              Contact Sales
             </Link>
-            <Link href="/products" className="border border-white/20 hover:bg-white/10 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+            <Link href="/products" className="border border-white/20 hover:bg-white/10 text-white px-8 py-3 rounded-lg font-medium transition-colors fast-button-hover">
               View Products
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

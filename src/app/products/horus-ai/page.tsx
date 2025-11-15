@@ -1,6 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Bot, ArrowLeft, Brain, Zap, TrendingUp, Activity, Shield, Eye } from "lucide-react";
 import Link from "next/link";
 
@@ -28,21 +30,7 @@ export default function HorusAIPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/products">
-            <Button variant="ghost" size="sm" className="hover:bg-white/10 fast-button-hover">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Products
-            </Button>
-          </Link>
-        </div>
-      </nav>
+      <Navigation showBackButton={true} backHref="/products" backText="Back to Products" />
 
       {/* Product Page Content */}
       <section className="pt-32 pb-20 px-6">
@@ -69,7 +57,7 @@ export default function HorusAIPage() {
           {/* AI Performance Dashboard */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             {aiMetrics.map((metric, index) => (
-              <div key={index} className="bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 p-6 rounded-xl border border-[#24a0af]/30">
+              <div key={index} className="bg-gradient-to-br from-[#24a0af]/20 to-[#1a5b60]/10 p-6 rounded-xl border border-[#24a0af]/30 product-card">
                 <div className="flex items-center gap-3 mb-4">
                   <Brain className={`w-6 h-6 ${metric.color}`} />
                   <span className="text-sm text-gray-400">{metric.label}</span>
@@ -91,7 +79,7 @@ export default function HorusAIPage() {
           </div>
 
           {/* AI Prediction vs Reality Graph */}
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12 product-card">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-[#24a0af]" />
@@ -146,7 +134,7 @@ export default function HorusAIPage() {
 
           {/* AI Capabilities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-[#24a0af]/10 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+            <div className="bg-gradient-to-br from-[#24a0af]/10 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
               <h3 className="text-2xl font-bold mb-4 text-[#24a0af] flex items-center gap-2">
                 <Brain className="w-6 h-6" />
                 Machine Learning Engine
@@ -171,7 +159,7 @@ export default function HorusAIPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#24a0af]/10 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+            <div className="bg-gradient-to-br from-[#24a0af]/10 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
               <h3 className="text-2xl font-bold mb-4 text-[#24a0af] flex items-center gap-2">
                 <Zap className="w-6 h-6" />
                 Automated Response
@@ -198,7 +186,7 @@ export default function HorusAIPage() {
           </div>
 
           {/* Real-time AI Activity */}
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12 product-card">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Activity className="w-6 h-6 text-[#24a0af]" />
               Live AI Activity Monitor
@@ -232,31 +220,30 @@ export default function HorusAIPage() {
           </div>
 
           {/* Pricing & CTA */}
-          <div className="text-center bg-gradient-to-br from-[#24a0af]/10 to-black/50 p-12 rounded-xl border border-[#24a0af]/20">
+          <div className="text-center bg-gradient-to-br from-[#24a0af]/10 to-black/50 p-12 rounded-xl border border-[#24a0af]/20 product-card">
             <h2 className="text-3xl font-bold mb-4">Deploy Horus AI</h2>
             <div className="text-4xl font-bold text-[#24a0af] mb-2">$399.99<span className="text-lg text-gray-400">/month</span></div>
             <p className="text-gray-400 mb-8">Enterprise AI security with unlimited threat analysis</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#24a0af] hover:bg-[#1a5b60] text-white fast-button-hover">
-                <Bot className="w-5 h-5 mr-2" />
-                Start AI Trial
-              </Button>
-              <Button size="lg" variant="outline" className="border-[#24a0af]/30 hover:bg-[#24a0af]/10 fast-button-hover">
-                <Eye className="w-5 h-5 mr-2" />
-                Watch AI Demo
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-[#24a0af] hover:bg-[#1a5b60] text-white fast-button-hover">
+                  <Bot className="w-5 h-5 mr-2" />
+                  Start AI Trial
+                </Button>
+              </Link>
+              <Link href="/docs">
+                <Button size="lg" variant="outline" className="border-[#24a0af]/30 hover:bg-[#24a0af]/10 fast-button-hover">
+                  <Eye className="w-5 h-5 mr-2" />
+                  Watch AI Demo
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

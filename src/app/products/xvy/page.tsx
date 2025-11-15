@@ -3,6 +3,8 @@
 import { ArrowLeft, Shield, Zap, Code, TrendingUp, Activity, Users, Search, FileText, Cpu } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export default function XvyPage() {
   // Demo data for Xvy Reverse Engineering Platform
@@ -24,16 +26,7 @@ export default function XvyPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between p-6 border-b border-white/10">
-        <Link href="/products" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors fast-button-hover">
-          <ArrowLeft className="w-4 h-4" />
-          Back to Products
-        </Link>
-        <Link href="/" className="text-xl font-bold">
-          Valk<span className="text-[#24a0af]">net</span>
-        </Link>
-      </nav>
+      <Navigation showBackButton={true} backHref="/products" backText="Back to Products" />
 
       {/* Hero Section */}
       <section className="px-6 py-16">
@@ -44,8 +37,8 @@ export default function XvyPage() {
                 <Code className="w-8 h-8 text-[#24a0af]" />
               </div>
               <div className="text-center sm:text-left">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">Xvy</h1>
-                <p className="text-lg sm:text-xl text-[#24a0af]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">Xvy</h1>
+                <p className="text-lg sm:text-xl text-[#24a0af] mt-2">
                   Reverse Engineering Platform
                 </p>
               </div>
@@ -185,6 +178,7 @@ export default function XvyPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

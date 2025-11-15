@@ -2,6 +2,8 @@
 
 import { Shield, ArrowLeft, Check, Zap } from "lucide-react";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function PricingPage() {
   const plans = [
@@ -54,24 +56,12 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors fast-button-hover">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Simple, Transparent Pricing</h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Choose the perfect security plan for your organization. All plans include our core protection features with no hidden fees.
@@ -83,9 +73,9 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 staggered-animation">
             {plans.map((plan, index) => (
-              <div key={index} className={`relative bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border ${plan.popular ? 'border-[#24a0af] ring-2 ring-[#24a0af]/20' : 'border-[#24a0af]/20'}`}>
+              <div key={index} className={`relative bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border ${plan.popular ? 'border-[#24a0af] ring-2 ring-[#24a0af]/20' : 'border-[#24a0af]/20'} product-card`}>
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-[#24a0af] text-black px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
@@ -119,7 +109,7 @@ export default function PricingPage() {
                     plan.popular 
                       ? 'bg-[#24a0af] hover:bg-[#1a5b60] text-white' 
                       : 'border border-white/20 hover:bg-white/10 text-white'
-                  }`}
+                  } fast-button-hover`}
                 >
                   {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                 </Link>
@@ -132,22 +122,22 @@ export default function PricingPage() {
       {/* FAQ Section */}
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 fade-in">
             <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20">
+          <div className="space-y-6 staggered-animation">
+            <div className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 product-card">
               <h3 className="text-xl font-bold mb-2">Can I change plans anytime?</h3>
               <p className="text-gray-400">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately and billing is prorated.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20">
+            <div className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 product-card">
               <h3 className="text-xl font-bold mb-2">Is there a free trial?</h3>
               <p className="text-gray-400">We offer a 30-day free trial for all plans. No credit card required to start your trial.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20">
+            <div className="bg-gradient-to-br from-[#1a5b60]/10 to-black/50 p-6 rounded-xl border border-[#24a0af]/20 product-card">
               <h3 className="text-xl font-bold mb-2">What payment methods do you accept?</h3>
               <p className="text-gray-400">We accept all major credit cards, ACH transfers, and wire transfers for enterprise customers.</p>
             </div>
@@ -155,12 +145,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

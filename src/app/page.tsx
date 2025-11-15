@@ -5,55 +5,16 @@ import { Shield, Zap, Globe, Server, Activity, FileCheck, Users, Lock, Eye, Cpu,
 import Link from "next/link";
 import { useState } from "react";
 import CookieBanner from "@/components/CookieBanner";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-sm hover:text-[#24a0af] transition-colors">About Us</a>
-            <a href="#features" className="text-sm hover:text-[#24a0af] transition-colors">Features</a>
-            <a href="#solutions" className="text-sm hover:text-[#24a0af] transition-colors">Solutions</a>
-            <Link href="/news" className="text-sm hover:text-[#24a0af] transition-colors">News</Link>
-            <a href="#contact" className="text-sm hover:text-[#24a0af] transition-colors">Contact</a>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="hover:bg-white/10 hidden sm:flex">
-              <Globe className="w-5 h-5" />
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="hover:bg-white/10 md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
-          </div>
-        </div>
-        
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
-            <div className="container mx-auto px-6 py-4 space-y-4">
-              <a href="#about" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</a>
-              <a href="#features" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>Features</a>
-              <a href="#solutions" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>Solutions</a>
-              <Link href="/news" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>News</Link>
-              <a href="#contact" className="block text-sm hover:text-[#24a0af] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            </div>
-          </div>
-        )}
-      </nav>
-
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 overflow-hidden">
         <div className="container mx-auto text-center relative z-10">
@@ -76,13 +37,13 @@ export default function Home() {
             <Link href="/products">
               <Button size="lg" className="bg-white text-black hover:bg-gray-200 fast-button-hover">
                 <Server className="w-5 h-5 mr-2" />
-                Get Started
+                Explore Products
               </Button>
             </Link>
-            <Link href="/status">
+            <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 fast-button-hover">
                 <Activity className="w-5 h-5 mr-2" />
-                System Status
+                Contact Sales
               </Button>
             </Link>
           </div>
@@ -154,34 +115,50 @@ export default function Home() {
       {/* Features Grid */}
       <section className="py-20 px-6">
         <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Enterprise-Grade Security Features</h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Advanced protection technologies designed to defend against the most sophisticated cyber threats
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-6">
                 <Zap className="w-8 h-8 text-[#24a0af]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Real-time Threat Detection</h3>
-              <p className="text-gray-400">Advanced AI-powered monitoring identifies and neutralizes threats before they impact your systems.</p>
+              <h3 className="text-xl font-bold mb-3">Real-time Threat Detection</h3>
+              <p className="text-gray-400 mb-4">Advanced AI-powered monitoring identifies and neutralizes threats before they impact your systems.</p>
+              <Link href="/features" className="text-[#24a0af] hover:underline text-sm font-medium flex items-center gap-1">
+                Learn more <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-6">
                 <Server className="w-8 h-8 text-[#24a0af]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Enterprise Infrastructure</h3>
-              <p className="text-gray-400">Scalable security solutions designed for organizations of any size with enterprise-grade protection.</p>
+              <h3 className="text-xl font-bold mb-3">Enterprise Infrastructure</h3>
+              <p className="text-gray-400 mb-4">Scalable security solutions designed for organizations of any size with enterprise-grade protection.</p>
+              <Link href="/solutions" className="text-[#24a0af] hover:underline text-sm font-medium flex items-center gap-1">
+                Learn more <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-4">
+            <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#24a0af]/10 border border-[#24a0af]/30 mb-6">
                 <Bell className="w-8 h-8 text-[#24a0af]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Instant Alerts</h3>
-              <p className="text-gray-400">Get notified immediately of security events with customizable alert systems and detailed reporting.</p>
+              <h3 className="text-xl font-bold mb-3">Instant Alerts</h3>
+              <p className="text-gray-400 mb-4">Get notified immediately of security events with customizable alert systems and detailed reporting.</p>
+              <Link href="/features" className="text-[#24a0af] hover:underline text-sm font-medium flex items-center gap-1">
+                Learn more <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* What is Valknet Section */}
-      <section id="about" className="py-20 px-6">
+      <section id="about" className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto text-center max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">What is Valknet Security?</h2>
           <p className="text-xl text-gray-400 mb-6">
@@ -190,10 +167,12 @@ export default function Home() {
           <p className="text-xl text-gray-400 mb-8">
             Join thousands of organizations who've discovered a better way to secure their digital assets.
           </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-200">
-            <Server className="w-5 h-5 mr-2" />
-            Schedule a Demo
-          </Button>
+          <Link href="/about">
+            <Button size="lg" className="bg-white text-black hover:bg-gray-200">
+              <Users className="w-5 h-5 mr-2" />
+              About Our Company
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -210,37 +189,37 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl">
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <Lock className="w-12 h-12 text-[#24a0af] mb-4" />
             <h3 className="text-2xl font-bold mb-3">Advanced Encryption</h3>
             <p className="text-gray-400">Military-grade encryption protects your data at rest and in transit with zero-knowledge architecture.</p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <Eye className="w-12 h-12 text-[#24a0af] mb-4" />
             <h3 className="text-2xl font-bold mb-3">24/7 Monitoring</h3>
             <p className="text-gray-400">Round-the-clock surveillance of your network with AI-powered anomaly detection and instant response protocols.</p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <Users className="w-12 h-12 text-[#24a0af] mb-4" />
             <h3 className="text-2xl font-bold mb-3">Access Management</h3>
             <p className="text-gray-400">Granular permission controls, multi-factor authentication, and identity verification for complete access security.</p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <Cloud className="w-12 h-12 text-[#24a0af] mb-4" />
             <h3 className="text-2xl font-bold mb-3">Cloud Security</h3>
             <p className="text-gray-400">Secure your cloud infrastructure with automated compliance checks and real-time vulnerability scanning.</p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <FileCheck className="w-12 h-12 text-[#24a0af] mb-4" />
             <h3 className="text-2xl font-bold mb-3">Compliance Reporting</h3>
             <p className="text-gray-400">Automated audit trails and compliance reports for SOC 2, ISO 27001, GDPR, and industry standards.</p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 product-card">
             <Server className="w-12 h-12 text-[#24a0af] mb-4" />
             <h3 className="text-2xl font-bold mb-3">Infrastructure Protection</h3>
             <p className="text-gray-400">Comprehensive endpoint protection, network segmentation, and disaster recovery solutions.</p>
@@ -249,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* Valknet Pro Section */}
-      <section id="solutions" className="py-20 px-6 relative overflow-hidden">
+      <section id="solutions" className="py-20 px-6 relative overflow-hidden bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block mb-6 px-4 py-2 bg-[#24a0af]/20 border border-[#24a0af]/50 rounded-full">
@@ -317,9 +296,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-200">
-              Get Valknet Pro
-            </Button>
+            <Link href="/pricing">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200">
+                Get Valknet Pro
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -365,22 +346,26 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 px-6">
+      <section id="contact" className="py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
         <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Get Started with Valknet Security</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Secure Your Organization?</h2>
           <p className="text-xl text-gray-400 mb-8">
             Deploy enterprise-grade security solutions and protect your organization from evolving cyber threats.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-200">
-              <Server className="w-5 h-5 mr-2" />
-              Request Demo
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
-              <Eye className="w-5 h-5 mr-2" />
-              View Documentation
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200">
+                <Users className="w-5 h-5 mr-2" />
+                Contact Sales
+              </Button>
+            </Link>
+            <Link href="/products">
+              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
+                <Eye className="w-5 h-5 mr-2" />
+                View Products
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -434,58 +419,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10">
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center mb-8">
-            <p className="text-2xl font-bold text-[#24a0af] mb-4">The cybersecurity platform for the modern enterprise.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Shield className="w-6 h-6 text-[#24a0af]" />
-                <span className="font-bold">Valknet Security</span>
-              </div>
-              <p className="text-sm text-gray-400">Enterprise cybersecurity solutions protecting organizations worldwide.</p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="/features" className="hover:text-[#24a0af] transition-colors">Features</Link></li>
-                <li><Link href="/solutions" className="hover:text-[#24a0af] transition-colors">Solutions</Link></li>
-                <li><Link href="/pricing" className="hover:text-[#24a0af] transition-colors">Pricing</Link></li>
-                <li><Link href="/docs" className="hover:text-[#24a0af] transition-colors">Documentation</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="/about" className="hover:text-[#24a0af] transition-colors">About Us</Link></li>
-                <li><Link href="/careers" className="hover:text-[#24a0af] transition-colors">Careers</Link></li>
-                <li><Link href="/news" className="hover:text-[#24a0af] transition-colors">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-[#24a0af] transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="/security-center" className="hover:text-[#24a0af] transition-colors">Security Center</Link></li>
-                <li><Link href="/compliance" className="hover:text-[#24a0af] transition-colors">Compliance</Link></li>
-                <li><Link href="/support" className="hover:text-[#24a0af] transition-colors">Support</Link></li>
-                <li><Link href="/status" className="hover:text-[#24a0af] transition-colors">Status</Link></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
       
       {/* Cookie Banner */}
       <CookieBanner />

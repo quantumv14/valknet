@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowLeft, Eye, Server, Zap, Anchor, Cpu, Bot } from "lucide-react";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const products = [
   {
@@ -65,21 +67,7 @@ const products = [
 export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="hover:bg-white/10 fast-button-hover">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Products Page Content */}
       <section className="pt-32 pb-20 px-6">
@@ -147,25 +135,22 @@ export default function ProductsPage() {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-12 rounded-xl border border-[#24a0af]/20">
+          <div className="text-center bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-12 rounded-xl border border-[#24a0af]/20 product-card">
             <h2 className="text-3xl font-bold mb-4">Need a Custom Solution?</h2>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
               Our security experts can design a tailored cybersecurity package that meets your specific requirements
             </p>
-            <Button size="lg" className="bg-white text-black hover:bg-gray-200 fast-button-hover">
-              <Shield className="w-5 h-5 mr-2" />
-              Contact Sales
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200 fast-button-hover">
+                <Shield className="w-5 h-5 mr-2" />
+                Contact Sales
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

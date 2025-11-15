@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Anchor, ArrowLeft, Shield, Target, Globe, Activity, AlertTriangle, TrendingDown, Users } from "lucide-react";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function AnchorPage() {
   // Botnet takedown metrics
@@ -27,21 +29,7 @@ export default function AnchorPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/products">
-            <Button variant="ghost" size="sm" className="hover:bg-white/10 fast-button-hover">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Products
-            </Button>
-          </Link>
-        </div>
-      </nav>
+      <Navigation showBackButton={true} backHref="/products" backText="Back to Products" />
 
       {/* Product Page Content */}
       <section className="pt-32 pb-20 px-6">
@@ -68,7 +56,7 @@ export default function AnchorPage() {
           {/* Takedown Metrics Dashboard */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             {takedownMetrics.map((metric, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 p-6 rounded-xl border border-blue-500/30">
+              <div key={index} className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 p-6 rounded-xl border border-blue-500/30 product-card">
                 <div className="flex items-center gap-3 mb-4">
                   <Target className={`w-6 h-6 ${metric.color}`} />
                   <span className="text-sm text-gray-400">{metric.label}</span>
@@ -88,7 +76,7 @@ export default function AnchorPage() {
           </div>
 
           {/* Botnet Activity Tracking Graph */}
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12 product-card">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold flex items-center gap-2">
                 <TrendingDown className="w-6 h-6 text-red-400" />
@@ -143,7 +131,7 @@ export default function AnchorPage() {
 
           {/* Capabilities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-blue-500/10 to-black/50 p-8 rounded-xl border border-blue-500/20">
+            <div className="bg-gradient-to-br from-blue-500/10 to-black/50 p-8 rounded-xl border border-blue-500/20 product-card">
               <h3 className="text-2xl font-bold mb-4 text-blue-400 flex items-center gap-2">
                 <Globe className="w-6 h-6" />
                 Global Threat Intelligence
@@ -168,7 +156,7 @@ export default function AnchorPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-500/10 to-black/50 p-8 rounded-xl border border-blue-500/20">
+            <div className="bg-gradient-to-br from-blue-500/10 to-black/50 p-8 rounded-xl border border-blue-500/20 product-card">
               <h3 className="text-2xl font-bold mb-4 text-blue-400 flex items-center gap-2">
                 <Users className="w-6 h-6" />
                 Legal Coordination
@@ -195,7 +183,7 @@ export default function AnchorPage() {
           </div>
 
           {/* Active Operations Monitor */}
-          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12">
+          <div className="bg-gradient-to-br from-[#1a5b60]/20 to-black/50 p-8 rounded-xl border border-[#24a0af]/20 mb-12 product-card">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Activity className="w-6 h-6 text-blue-400" />
               Active Takedown Operations
@@ -248,7 +236,7 @@ export default function AnchorPage() {
 
           {/* Threat Categories */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-gradient-to-br from-red-500/10 to-black/50 p-6 rounded-xl border border-red-500/20">
+            <div className="bg-gradient-to-br from-red-500/10 to-black/50 p-6 rounded-xl border border-red-500/20 product-card">
               <h3 className="text-xl font-bold mb-3 text-red-400">Banking Trojans</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -266,7 +254,7 @@ export default function AnchorPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500/10 to-black/50 p-6 rounded-xl border border-purple-500/20">
+            <div className="bg-gradient-to-br from-purple-500/10 to-black/50 p-6 rounded-xl border border-purple-500/20 product-card">
               <h3 className="text-xl font-bold mb-3 text-purple-400">Ransomware</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -284,7 +272,7 @@ export default function AnchorPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-500/10 to-black/50 p-6 rounded-xl border border-green-500/20">
+            <div className="bg-gradient-to-br from-green-500/10 to-black/50 p-6 rounded-xl border border-green-500/20 product-card">
               <h3 className="text-xl font-bold mb-3 text-green-400">IoT Botnets</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -304,31 +292,30 @@ export default function AnchorPage() {
           </div>
 
           {/* Pricing & CTA */}
-          <div className="text-center bg-gradient-to-br from-blue-500/10 to-black/50 p-12 rounded-xl border border-blue-500/20">
+          <div className="text-center bg-gradient-to-br from-blue-500/10 to-black/50 p-12 rounded-xl border border-blue-500/20 product-card">
             <h2 className="text-3xl font-bold mb-4">Enterprise Botnet Protection</h2>
             <div className="text-4xl font-bold text-blue-400 mb-2">Enterprise Pricing</div>
             <p className="text-gray-400 mb-8">Custom solutions tailored to your organization's threat landscape</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white fast-button-hover">
-                <Anchor className="w-5 h-5 mr-2" />
-                Request Consultation
-              </Button>
-              <Button size="lg" variant="outline" className="border-blue-500/30 hover:bg-blue-500/10 fast-button-hover">
-                <Target className="w-5 h-5 mr-2" />
-                View Case Studies
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white fast-button-hover">
+                  <Anchor className="w-5 h-5 mr-2" />
+                  Request Consultation
+                </Button>
+              </Link>
+              <Link href="/docs">
+                <Button size="lg" variant="outline" className="border-blue-500/30 hover:bg-blue-500/10 fast-button-hover">
+                  <Target className="w-5 h-5 mr-2" />
+                  View Case Studies
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

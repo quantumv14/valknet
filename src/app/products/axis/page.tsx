@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Server, ArrowLeft, Zap, Users, Globe, Activity, Shield, TrendingUp, Clock } from "lucide-react";
 import Link from "next/link";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export default function AxisPage() {
   // Server performance metrics
@@ -29,21 +31,7 @@ export default function AxisPage() {
 
   return (
     <div className="min-h-screen bg-black text-white gradient-mesh noise-texture">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-[#24a0af]" />
-            <span className="text-xl font-bold">Valknet Security</span>
-          </Link>
-          <Link href="/products">
-            <Button variant="ghost" size="sm" className="hover:bg-white/10 fast-button-hover">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Products
-            </Button>
-          </Link>
-        </div>
-      </nav>
+      <Navigation showBackButton={true} backHref="/products" backText="Back to Products" />
 
       {/* Product Page Content */}
       <section className="pt-32 pb-20 px-6">
@@ -55,8 +43,8 @@ export default function AxisPage() {
                 <Server className="w-8 h-8 text-[#24a0af]" />
               </div>
               <div className="text-center sm:text-left">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">Axis</h1>
-                <p className="text-lg sm:text-xl text-[#24a0af]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">Axis</h1>
+                <p className="text-lg sm:text-xl text-[#24a0af] mt-2">
                   Server Infrastructure Protection
                 </p>
               </div>
@@ -265,13 +253,7 @@ export default function AxisPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
-        <div className="container mx-auto px-6 text-center text-sm text-gray-400">
-          <p>&copy; 2025 Valknet Security. All rights reserved. Protecting enterprises worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
